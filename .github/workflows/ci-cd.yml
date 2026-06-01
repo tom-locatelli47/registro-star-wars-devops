@@ -43,8 +43,8 @@ jobs:
           context: .
           push: true
           tags: |
-            tom-locatelli47/registro-star-wars-devops:latest
-            tom-locatelli47/registro-star-wars-devops:${{ steps.meta.outputs.image_tag }}
+            tomaslocatelli/registro-star-wars-devops:latest
+            tomaslocatelli/registro-star-wars-devops:${{ steps.meta.outputs.image_tag }}
 
   update-gitops:
     needs: build-and-push
