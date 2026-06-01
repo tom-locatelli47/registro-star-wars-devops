@@ -43,8 +43,8 @@ jobs:
           context: .
           push: true
           tags: |
-            tom-locatelli47/registro-atividades-backend:latest
-            tom-locatelli47/registro-atividades-backend:${{ steps.meta.outputs.image_tag }}
+            tom-locatelli47/registro-star-wars-devops:latest
+            tom-locatelli47/registro-star-wars-devops:${{ steps.meta.outputs.image_tag }}
 
   update-gitops:
     needs: build-and-push
@@ -63,10 +63,10 @@ jobs:
 
       - name: Update image tag
         run: |
-          cd gitops/registro-atividades-backend/k8s
+          cd gitops/registro-star-wars-k8s/k8s
           kustomize edit set image \
-            tom-locatelli47/registro-atividades-backend=\
-            tom-locatelli47/registro-atividades-backend:${{ needs.build-and-push.outputs.image_tag }}
+            tom-locatelli47/registro-star-wars-devops=\
+            tom-locatelli47/registro-star-wars-devops:${{ needs.build-and-push.outputs.image_tag }}
 
       - name: Commit adn push
         run: |
